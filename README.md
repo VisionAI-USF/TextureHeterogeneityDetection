@@ -10,7 +10,7 @@ TBA
 There are three variables as an input. The first of them is an image. The second is a mask for the image. The third is Harmonic Vector description.<br>
 The image can be represented by any data type. Also, the image may not be in the range from 0 to 255. <br>
 The mask has to be the same resolution as the image. Non-zero elements represent a region where heterogeneity will be evaluated.<br>
-The Harmonic Vector (hV) represents the complexity of a “convolution kernels”. All operations are done in Fourier space, so you may think about them as representatives of convolution kernels. The simplest texture description represented by 0. Next is -1 and 1 and so on. Thus, you can use hV as (0), (-1, 0), (-1, 0, 1), (-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5) and so on. For more details see papers in the reference section.<br>
+The Harmonic Vector (hV) represents the complexity and the number of a “convolution kernels”. All operations are done in Fourier space, so you may think about them as representatives of convolution kernels. The simplest texture description represented by 0. Next is -1 and 1 and so on. Thus, you can use hV as (0), (-1, 0), (-1, 0, 1), ..., (-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5) and so on. For more details see papers in the reference section.<br>
 
 <b>Output</b><br>
 features<br>
@@ -36,4 +36,8 @@ figure; imagesc(mask); colormap gray;<br>
 
 rng('default')<br>
 Line 21 at cluster_texture.m<br>
+
+<b>References</b><br>
+If you are going to use it, please, use the reference:<br>
+TBA
 
