@@ -25,12 +25,15 @@ Habitat detection algorithm produces two outputs.<br><br>
 "Features.q_features.largest_region_v": The largest ratio of a habitat area to an RoI area.<br>
 "Features.q_features.mean_region_v": The mean ratio of a habitat area to an RoI area.<br>
 "Features.q_features.median_region_v": The median ratio of a habitat area to an RoI area.<br>
-"Features.q_features.disjoint_smallest_ration_v": The smallest ratio of a habitat area to an RoI area.<br>
-"Features.q_features.disjoint_largest_region_v": The smallest ratio of a habitat area to an RoI area.<br>
-"Features.q_features.disjoint_mean_region_v": The smallest ratio of a habitat area to an RoI area.<br>
-"Features.q_features.disjoint_median_region_v": The smallest ratio of a habitat area to an RoI area.<br>
+"Features.q_features.disjoint_smallest_ration_v": The smallest ratio of a disjoint* habitat area to an RoI area.<br>
+"Features.q_features.disjoint_largest_region_v": The largest ratio of a disjoint* habitat area to an RoI area.<br>
+"Features.q_features.disjoint_mean_region_v": The mean ratio of a disjoint* habitat area to an RoI area.<br>
+"Features.q_features.disjoint_median_region_v": The median ratio of a disjoint* habitat area to an RoI area.<br>
+"Features.centroids_mean_dist": Mean euclidean distance from each habitat texture signature to a RoI texture signature. The RoI texture signature is defined as mean value of all texture signatures.<br>
+"Features.centroids_std_dist": Standart deviation of euclidean distances from each habitat texture signature to a RoI texture signature. The RoI texture signature is defined as mean value of all texture signatures.<br><br>
 
 
+*Habitats are detected without the respect to their location within an RoI. As a result, an individual habitat can be presented as set of disjoint sub-regions within an RoI. In case where area statistics is computed on disjoint habitats each disjoint region of a habitat is considered as an independent habitat.<br>
 
 
 <b>Cohort processing</b><br>
