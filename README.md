@@ -15,20 +15,20 @@ The Harmonic Vector (hV) represents the complexity and the number of a “convol
 
 
 <b>Output Arguments</b><br>
-Habitat detection algorithm produces two outputs.<br>
-"Habitats": NxXxY matrix, where N is number of detected habitats, X and Y are resolutions of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying combined map.<br>
+Habitat detection algorithm produces two outputs.<br><br>
+"Habitats": NxXxY matrix, where N is number of detected habitats, X and Y are resolutions of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying of combined map.<br><br>
 "Features": Structure variable containing description of habitats and tumor heterogeneity.<br>
 "Features.num_clusters": number of detected habitats;<br>
 "Features.fingerprint": texture signature values for each habitat. The order of signatures is the same as the order of habitat maps in "Habitats" output.<br>
 "Features.q_features": Stracture field which describe statistical information about habitat areas.<br>
-"Features.q_features.smallest_ration_v": Stracture field which describe statistical information about habitat areas.<br>
-"Features.q_features.largest_region_v": Stracture field which describe statistical information about habitat areas.<br>
-"Features.q_features.mean_region_v": Stracture field which describe statistical information about habitat areas.<br>
-"Features.q_features.median_region_v": Stracture field which describe statistical information about habitat areas.<br>
-"Features.q_features.disjoint_smallest_ration_v": Stracture field which describe statistical information about habitat areas.<br>
-"Features.q_features.disjoint_largest_region_v": Stracture field which describe statistical information about habitat areas.<br>
-"Features.q_features.disjoint_mean_region_v": Stracture field which describe statistical information about habitat areas.<br>
-"Features.q_features.disjoint_median_region_v": Stracture field which describe statistical information about habitat areas.<br>
+"Features.q_features.smallest_ration_v": The smallest ratio of a habitat area to an RoI area.<br>
+"Features.q_features.largest_region_v": The largest ratio of a habitat area to an RoI area.<br>
+"Features.q_features.mean_region_v": The mean ratio of a habitat area to an RoI area.<br>
+"Features.q_features.median_region_v": The median ratio of a habitat area to an RoI area.<br>
+"Features.q_features.disjoint_smallest_ration_v": The smallest ratio of a habitat area to an RoI area.<br>
+"Features.q_features.disjoint_largest_region_v": The smallest ratio of a habitat area to an RoI area.<br>
+"Features.q_features.disjoint_mean_region_v": The smallest ratio of a habitat area to an RoI area.<br>
+"Features.q_features.disjoint_median_region_v": The smallest ratio of a habitat area to an RoI area.<br>
 
 
 
