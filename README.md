@@ -27,14 +27,14 @@ Habitat detection algorithm produces two outputs.<br><br>
         + <i>"Features.q_features.mean_region_v"</i>: The mean ratio of a habitat area to an RoI area.<br>
         + <i>"Features.q_features.median_region_v"</i>: The median ratio of a habitat area to an RoI area.<br>
         + <i>"Features.q_features.disjoint_smallest_ration_v"</i>: The smallest ratio of a <b>disjoint*</b> habitat area to an RoI area.<br>
-        + <i>"Features.q_features.disjoint_largest_region_v"</i>: The largest ratio of a disjoint* habitat area to an RoI area.<br>
-        + <i>"Features.q_features.disjoint_mean_region_v"</i>: The mean ratio of a disjoint* habitat area to an RoI area.<br>
-        + <i>"Features.q_features.disjoint_median_region_v"</i>: The median ratio of a disjoint* habitat area to an RoI area.<br>
+        + <i>"Features.q_features.disjoint_largest_region_v"</i>: The largest ratio of a <b>disjoint*</b> habitat area to an RoI area.<br>
+        + <i>"Features.q_features.disjoint_mean_region_v"</i>: The mean ratio of a <b>disjoint*</b> habitat area to an RoI area.<br>
+        + <i>"Features.q_features.disjoint_median_region_v"</i>: The median ratio of a <b>disjoint*</b> habitat area to an RoI area.<br>
   + <i>"Features.centroids_mean_dist"</i>: Mean euclidean distance from each habitat texture signature to a RoI texture signature. The RoI texture signature is defined as mean value of all texture signatures.<br>
   + <i>	"Features.centroids_std_dist"</i>: Standart deviation of euclidean distances from each habitat texture signature to a RoI texture signature. The RoI texture signature is defined as mean value of all texture signatures.<br><br>
 
 
-*Habitats are detected without the respect to their location within an RoI. As a result, an individual habitat can be presented as set of disjoint sub-regions within an RoI. In case where area statistics is computed on disjoint habitats each disjoint region of a habitat is considered as an independent habitat.<br>
+<b>*Habitats</b> are detected without the respect to their location within an RoI. As a result, an individual habitat can be presented as set of disjoint sub-regions within an RoI. In case where area statistics is computed on disjoint habitats each disjoint region of a habitat is considered as an independent habitat.<br>
 
 
 
