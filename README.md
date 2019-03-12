@@ -39,7 +39,7 @@ Habitat detection algorithm produces two outputs.<br><br>
 
 
 
-<H2>Patient cohort processing</H2><br>
+<H2>Patient Cohort Processing</H2><br>
 
 During processing a dataset of images it is important to fulfill the following requirements.<br><br>
 + <i>Uniform spatial resolution</i>. Medical image spatial resolution depends on a patient. For consistency of habitat detection across patients it is important to make spatial resulution uniform.<br><br>
@@ -54,10 +54,12 @@ Overall, here is recomended preprocessing algorithm:<br>
 
 Result can be used as <i>compute_features.m</i> function input. <b>Step 3</b> is needed to prevet artifacts during texture computation on margine of a segmentation.<br><br>
 
-In order to increase reproducibility and simplify preprocessing we up-dated heterogeneity detection algorithm. Its texture computation function is modified in the way that resolution of input images becomes irrelevant. There is only one requirement: <i>Uniform spatial resolution</i>. Due to changes in texture computation process results of the original and modified methods can vary. Download link for the modified method shown below:<br>
+<H2>Available Modifications</H2>
+
+In order to increase reproducibility and simplify preprocessing we updated heterogeneity detection algorithm. Its texture computation function is modified in the way that resolution of input images becomes irrelevant. There is only one requirement: <i>Uniform spatial resolution</i>. Due to changes in texture computation process results of the original and modified methods can vary. Download link for the modified method shown below:<br>
 [link]<br>
 
-<H2>Example code</H2>
+<H2>Example Code</H2>
 
 ```
 %Include all folders and subfolders into Matlab PATH variable
@@ -74,7 +76,7 @@ figure; imagesc(img); colormap gray;title('CT data');<br>
 figure; imagesc(mask); colormap gray;title('Original segmentation');<br>
 ```
 
-<H2>Assumptions and reproducibility</H2>
+<H2>Assumptions and Peproducibility</H2>
 
 rng('default')<br>
 Line 21 at cluster_texture.m<br>
