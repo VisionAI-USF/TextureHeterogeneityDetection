@@ -17,7 +17,7 @@ The Harmonic Vector (hV) represents the complexity and the number of a “convol
 <b>Output Arguments</b><br>
 
 Habitat detection algorithm produces two outputs.<br><br>
-<i>"Habitats"</i>: NxXxY matrix, where N is number of detected habitats, X and Y are resolutions of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying of combined map.<br><br>
+<ui>"Habitats"</ui>: NxXxY matrix, where N is number of detected habitats, X and Y are resolutions of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying of combined map.<br><br>
 
 <u><i>"Features"</i></u>: Structure variable containing description of habitats and tumor heterogeneity.<br>
 <u><i>"Features.num_clusters"</i></u>: number of detected habitats;<br>
