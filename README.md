@@ -17,7 +17,7 @@ There are three input variables. The first is a 2D image. The second is a mask (
 <H2>Output Arguments</H2><br>
 
 Habitat detection algorithm produces two outputs.<br><br>
-+ <i>"Habitats"</i>: NxXxY matrix, where N is number of detected habitats, X and Y are resolutions of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying of combined map.
++ <i>"Habitats"</i>: NxXxY matrix, where N is number of detected habitats, X and Y are resolutions of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying of combined habitat map.
 + <i>"Features"</i>: Structure variable containing description of habitats and tumor heterogeneity.<br>
   + <i>"Features.num_clusters"</i>: number of detected habitats;<br>
   + <i>"Features.fingerprint"</i>: texture signature values for each habitat. The order of signatures is the same as the order of habitat maps in "Habitats" output.<br>
@@ -61,6 +61,8 @@ In order to increase reproducibility and simplify preprocessing we updated heter
 
 <H2>Example Code</H2>
 
+After you download the code, include all the folders (features, habitats, U, utils, Wavelet and workflow) and their subfolders into Matlab PATH variable. All the computations are done by function <i>compute_features</i>. Below is an example of its usage.
+
 ```
 %Include all folders and subfolders into Matlab PATH variable
 
@@ -78,8 +80,11 @@ figure; imagesc(mask); colormap gray;title('Original segmentation');<br>
 
 <H2>Assumptions and Peproducibility</H2>
 
+We use k-mean algorithm for detection of clusters with similar texture signatures. For reproducibility we used default Random Number Generator.
+```
 rng('default')<br>
-Line 21 at cluster_texture.m<br>
+```
+Line 21 at <i>workflow/cluster_texture.m</i><br>
 
 <H2>References</b></H2>
 If you are going to use it, please, use the reference:<br>
