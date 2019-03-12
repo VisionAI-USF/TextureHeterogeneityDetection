@@ -52,8 +52,10 @@ Overall, here is recomended preprocessing algorithm:<br>
 3. Extend the bounding box by a constant.<br>
 4. Extract patches with resulting bounding box size from source image and its segmentation.<br>
 
-Result can be used as <i>compute_features.m</i> function input. <b>Step 3</b> is needed to prevet artifacts during texture computation on margine of a segmentation.
+Result can be used as <i>compute_features.m</i> function input. <b>Step 3</b> is needed to prevet artifacts during texture computation on margine of a segmentation.<br><br>
 
+In order to increase reproducibility and simplify preprocessing we up-dated heterogeneity detection algorithm. Its texture computation function is modified in the way that resolution of input images becomes irrelevant. There is only one requirement: <i>Uniform spatial resolution</i>. Due to changes in texture computation process results of the original and modified methods can vary. Download link for the modified method shown below:<br>
+[link]<br>
 
 <H2>Example code</H2>
 
