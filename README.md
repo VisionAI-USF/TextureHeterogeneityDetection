@@ -42,9 +42,9 @@ Habitat detection algorithm produces two outputs.<br><br>
 <H2>Patient cohort processing</H2><br>
 
 During processing a dataset of images it is important to fulfill the following requirements.<br><br>
-+ Uniform spatial resolution. Medical image spatial resolution depends on a patient. For consistency of habitat detection across patients it is important to make spatial resulution uniform.<br><br>
-+ Uniform image size. Texture computation is performed in the frequency space after the fourier transform. Varience in input image sizes will cause difference in texture signature computation and as a result drop in texture signatures comparability.<br><br>
-+ Minimum data outside RoI. The result of the fourier transform depends on a content of an input image. <br><br>
++ <i>Uniform spatial resolution</i>. Medical image spatial resolution depends on a patient. For consistency of habitat detection across patients it is important to make spatial resulution uniform.<br><br>
++ <i>Uniform image size</i>. Texture computation is performed in the frequency space after the fourier transform. Varience in input image sizes will cause difference in texture signature computation and as a result drop in texture signatures comparability.<br><br>
++ <i>Minimum data outside RoI</i>. The result of the fourier transform depends on a content of an input image. <br><br>
 
 
 
