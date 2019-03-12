@@ -48,10 +48,11 @@ During processing a dataset of images it is important to fulfill the following r
 
 Overall, here is recomended preprocessin algorithm:<br>
 1. Resample images into uniform spacing.<br>
-2. Define the largest bounding box (bb) across all patints.<br>
+2. Define the largest bounding box across all patints.<br>
 3. Extend the bounding box by a constant.<br>
 4. Extract patches with resulting bounding box size from source image and its segmentation.<br>
 
+Result can be used as <i>compute_features.m</i> function input.
 
 
 <H2>Example code</H2>
