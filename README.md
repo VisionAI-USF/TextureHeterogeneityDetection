@@ -1,4 +1,4 @@
-# TextureHeterogeneityDetection
+# Texture Heterogeneity Detection
 We present an approach of Spatial Heterogeneity, e.i, Habitats, detection using texture information. First, We compute circular harmonic wavelets for small patches within a Region of Interest (RoI). Second, we cluster patches in order to define the sub-regions of an image with similar texture patterns (habitats). Finally, information about resulting clusters and their texture signatures is presented as habitat descriptors.
 
 <H2>Introduction</H2><br>
