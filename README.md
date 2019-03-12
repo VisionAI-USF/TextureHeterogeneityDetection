@@ -10,13 +10,15 @@ TBA
 There are three input variables. The first is a 2D image. The second is a mask (RoI) for the image. The third is Harmonic Vector description.<br>
 The image (img) can be represented by any data type. There are no requirements for pixel value range or type.<br>
 The RoI (mask) has to have the same resolution as the input image. Non-zero elements represent an RoI where heterogeneity should be evaluated.<br>
-The Harmonic Vector (hV) represents the complexity and the number of a “convolution kernels”. All operations are done in Fourier space, so you may think about them as representatives of convolution kernels. The simplest texture description represented by 0. Next is -1 and 1 and so on. Thus, you can use hV as (0), (-1, 0), (-1, 0, 1), ..., (-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5) and so on. For more details see papers in the reference section.<br>
+The Harmonic Vector (hV) represents the complexity and the number of a “convolution kernels”. All operations are done in Fourier space, so you may think about them as representatives of convolution kernels. The simplest texture description represented by 0. Next is -1 and 1 and so on. Thus, you can set hV to (0), (-1, 0), (-1, 0, 1), ..., (-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5) and so on. For more details see papers in the reference section.<br>
 <br>
 
 
 <b>Output Arguments</b><br>
+
 Habitat detection algorithm produces two outputs.<br><br>
-"Habitats": NxXxY matrix, where N is number of detected habitats, X and Y are resolutions of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying of combined map.<br><br>
+<i>"Habitats"</i>: NxXxY matrix, where N is number of detected habitats, X and Y are resolutions of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying of combined map.<br><br>
+
 "Features": Structure variable containing description of habitats and tumor heterogeneity.<br>
 "Features.num_clusters": number of detected habitats;<br>
 "Features.fingerprint": texture signature values for each habitat. The order of signatures is the same as the order of habitat maps in "Habitats" output.<br>
@@ -36,7 +38,16 @@ Habitat detection algorithm produces two outputs.<br><br>
 *Habitats are detected without the respect to their location within an RoI. As a result, an individual habitat can be presented as set of disjoint sub-regions within an RoI. In case where area statistics is computed on disjoint habitats each disjoint region of a habitat is considered as an independent habitat.<br>
 
 
-<b>Cohort processing</b><br>
+
+
+<b>Patient cohort processing</b><br>
+
+During processing a dataset of images it is important to fulfill the following requirements.<br><br>
+Uniform spatial resolution. Medical image spatial resolution depends on a patient. For consistency of habitat detection across patients it is important to make spatial resulution uniform.<br><br>
+Uniform image size. Texture computation is performed in the frequency space after the fourier transform. Varience in input image sizes will cause difference in texture signature computation and as a result drop in texture signatures comparability.<br><br>
+Minimum data outside RoI. The result of the fourier transform depends on a content of an input image. <br><br>
+
+
 
 <b>Example code</b>
 
