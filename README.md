@@ -43,15 +43,21 @@ Habitat detection algorithm produces two outputs.<br><br>
 
 During processing a dataset of images it is important to fulfill the following requirements.<br><br>
 + <i>Uniform spatial resolution</i>. Medical image spatial resolution depends on a patient. For consistency of habitat detection across patients it is important to make spatial resulution uniform.<br><br>
-+ <i>Uniform image size</i>. Texture computation is performed in the frequency space after the fourier transform. Varience in input image sizes will cause difference in texture signature computation and as a result drop in texture signatures comparability.<br><br>
-+ <i>Minimum data outside RoI</i>. The result of the fourier transform depends on a content of an input image. <br><br>
++ <i>Uniform image size</i>. Texture computation is performed in the frequency space after the fourier transform. Varience in input image size will cause difference in texture signature computation and as a result drop in texture signatures comparability.<br><br>
+
+
+Overall, here is recomended preprocessin algorithm:<br>
+1. Resample images into uniform spacing.<br>
+2. Define the largest bounding box (bb) across all patints.<br>
+3. Extend the bounding box by a constant.<br>
+4. Extract patches with resulting bounding box size from source image and its segmentation.<br>
 
 
 
 <H2>Example code</H2>
 
 ```
-%Include all subfolders into Matlab's PATH
+%Include all folders and subfolders into Matlab PATH variable
 
 clc;<br>
 clear;<br>
