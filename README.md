@@ -6,7 +6,7 @@ This code is part of a project which results are published in the paper: "Reveal
 TBA
 
 
-<b>Input Arguments</b><br>
+<H2>Input Arguments</H2><br>
 There are three input variables. The first is a 2D image. The second is a mask (RoI) for the image. The third is Harmonic Vector description.<br>
 + <i>"img"</i>: The Source 2D image. There are no requirements for pixel value range or type.<br>
 + <i>"mask"</i>: An RoI for the source image. It has to have the same resolution as the input image. Non-zero elements represent an RoI where heterogeneity should be evaluated.<br>
@@ -14,7 +14,7 @@ There are three input variables. The first is a 2D image. The second is a mask (
 <br>
 
 
-<b>Output Arguments</b><br>
+<H2>Output Arguments</H2><br>
 
 Habitat detection algorithm produces two outputs.<br><br>
 + <i>"Habitats"</i>: NxXxY matrix, where N is number of detected habitats, X and Y are resolutions of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying of combined map.
@@ -39,7 +39,7 @@ Habitat detection algorithm produces two outputs.<br><br>
 
 
 
-<b>Patient cohort processing</b><br>
+<H2>Patient cohort processing</H2><br>
 
 During processing a dataset of images it is important to fulfill the following requirements.<br><br>
 + Uniform spatial resolution. Medical image spatial resolution depends on a patient. For consistency of habitat detection across patients it is important to make spatial resulution uniform.<br><br>
@@ -48,7 +48,7 @@ During processing a dataset of images it is important to fulfill the following r
 
 
 
-<b>Example code</b>
+<H2>Example code</H2>
 
 %Include all subfolders into Matlab's PATH
 
@@ -64,12 +64,12 @@ figure; imagesc(img); colormap gray;title('CT data');<br>
 figure; imagesc(mask); colormap gray;title('Original segmentation');<br>
 
 
-<b>Assumptions and reproducibility</b>
+<H2>Assumptions and reproducibility</H2>
 
 rng('default')<br>
 Line 21 at cluster_texture.m<br>
 
-<b>References</b><br>
+<H2>References</b></H2>
 If you are going to use it, please, use the reference:<br>
 TBA
 
