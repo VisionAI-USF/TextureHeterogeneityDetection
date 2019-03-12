@@ -49,6 +49,7 @@ During processing a dataset of images it is important to fulfill the following r
 
 
 <H2>Example code</H2>
+
 ```
 %Include all subfolders into Matlab's PATH
 
