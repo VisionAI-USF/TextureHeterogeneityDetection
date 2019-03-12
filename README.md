@@ -49,7 +49,7 @@ During processing a dataset of images it is important to fulfill the following r
 
 
 <H2>Example code</H2>
-
+```
 %Include all subfolders into Matlab's PATH
 
 clc;<br>
@@ -62,7 +62,7 @@ hV = [-1,0,1];<br>
 show_habitats(habitats);title('Habitat map');<br>
 figure; imagesc(img); colormap gray;title('CT data');<br>
 figure; imagesc(mask); colormap gray;title('Original segmentation');<br>
-
+```
 
 <H2>Assumptions and reproducibility</H2>
 
