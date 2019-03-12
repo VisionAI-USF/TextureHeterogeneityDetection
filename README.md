@@ -26,7 +26,7 @@ Habitat detection algorithm produces two outputs.<br><br>
         + <i>"Features.q_features.largest_region_v"</i>: The largest ratio of a habitat area to an RoI area.<br>
         + <i>"Features.q_features.mean_region_v"</i>: The mean ratio of a habitat area to an RoI area.<br>
         + <i>"Features.q_features.median_region_v"</i>: The median ratio of a habitat area to an RoI area.<br>
-        + <i>"Features.q_features.disjoint_smallest_ration_v"</i>: The smallest ratio of a disjoint* habitat area to an RoI area.<br>
+        + <i>"Features.q_features.disjoint_smallest_ration_v"</i>: The smallest ratio of a disjoint<b>*</b> habitat area to an RoI area.<br>
         + <i>"Features.q_features.disjoint_largest_region_v"</i>: The largest ratio of a disjoint* habitat area to an RoI area.<br>
         + <i>"Features.q_features.disjoint_mean_region_v"</i>: The mean ratio of a disjoint* habitat area to an RoI area.<br>
         + <i>"Features.q_features.disjoint_median_region_v"</i>: The median ratio of a disjoint* habitat area to an RoI area.<br>
