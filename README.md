@@ -8,10 +8,10 @@ TBA
 
 <H2>Input Arguments</H2><br>
 There are three input variables. The first is a 2D image. The second is a mask (RoI) for the image. The third is Harmonic Vector description.<br>
-+ <i>"img"</i>: The Source 2D image. There are no requirements for pixel value range or type.<br>
-+ <i>"mask"</i>: An RoI for the source image. It has to have the same resolution as the input image. Non-zero elements represent an RoI where heterogeneity should be evaluated.<br>
-+ <i>"hV"</i>: The Harmonic Vector (hV) represents the complexity and the number of a “convolution kernels”. All operations are done in Fourier space, so you may think about them as representatives of convolution kernels. The simplest texture description represented by 0. Next is -1 and 1 and so on. Thus, you can set hV to (0), (-1, 0), (-1, 0, 1), ..., (-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5) and so on. For more details see papers in the reference section.<br>
-<br>
+ + <i>"img"</i>: The Source 2D image. There are no requirements for pixel value range or type.<br>
+ + <i>"mask"</i>: An RoI for the source image. It has to have the same resolution as the input image. Non-zero elements represent an RoI where heterogeneity should be evaluated.<br>
+ + <i>"hV"</i>: The Harmonic Vector (hV) represents the complexity and the number of a “convolution kernels”. All operations are done in Fourier space, so you may think about them as representatives of convolution kernels. The simplest texture description represented by 0. Next is -1 and 1 and so on. Thus, you can set hV to (0), (-1, 0), (-1, 0, 1), ..., (-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5) and so on. For more details see papers in the reference section.<br>
+
 
 
 <H2>Output Arguments</H2><br>
