@@ -46,13 +46,13 @@ During processing a dataset of images it is important to fulfill the following r
 + <i>Uniform image size</i>. Texture computation is performed in the frequency space after the fourier transform. Varience in input image size will cause difference in texture signature computation and as a result drop in texture signatures comparability.<br><br>
 
 
-Overall, here is recomended preprocessin algorithm:<br>
+Overall, here is recomended preprocessing algorithm:<br>
 1. Resample images into uniform spacing.<br>
-2. Define the largest bounding box across all patints.<br>
+2. Define the largest bounding box across training and test (if present) cohorts.<br>
 3. Extend the bounding box by a constant.<br>
 4. Extract patches with resulting bounding box size from source image and its segmentation.<br>
 
-Result can be used as <i>compute_features.m</i> function input.
+Result can be used as <i>compute_features.m</i> function input. <b>Step 3</b> is needed to prevet artifacts during texture computation on margine of a segmentation.
 
 
 <H2>Example code</H2>
