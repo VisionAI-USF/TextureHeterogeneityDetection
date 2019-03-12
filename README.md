@@ -19,7 +19,7 @@ The Harmonic Vector (hV) represents the complexity and the number of a “convol
 Habitat detection algorithm produces two outputs.<br><br>
 <ui>"Habitats"</ui>: NxXxY matrix, where N is number of detected habitats, X and Y are resolutions of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying of combined map.<br><br>
 
-<u><i>"Features"</i></u>: Structure variable containing description of habitats and tumor heterogeneity.<br>
+<i><u>"Features"</u></i>: Structure variable containing description of habitats and tumor heterogeneity.<br>
 <u><i>"Features.num_clusters"</i></u>: number of detected habitats;<br>
 <u><i>"Features.fingerprint"</i>: texture signature values for each habitat. The order of signatures is the same as the order of habitat maps in "Habitats" output.<br>
 <u><i>"Features.q_features"</i></u>: Stracture field which describe statistical information about habitat areas.<br>
