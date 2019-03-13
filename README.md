@@ -34,7 +34,9 @@ Habitat detection algorithm produces two outputs.<br><br>
   + <i>	"Features.centroids_std_dist"</i>: Standart deviation of euclidean distances from each habitat texture signature to a RoI texture signature. The RoI texture signature is defined as mean value of all texture signatures.<br><br>
 
 
-<b>*Habitats</b> are detected without the respect to their location within an RoI. As a result, an individual habitat can be presented as set of disjoint sub-regions within an RoI. In case where area statistics is computed on disjoint habitats each disjoint region of a habitat is considered as an independent habitat.<br>
+<b>*Habitats</b> are detected without the respect to their location within an RoI. As a result, an individual habitat can be presented as set of disjoint sub-regions within an RoI. In case where area statistics is computed on disjoint habitats each disjoint region of a habitat is considered as an independent habitat.<br><br>
+
+For detailed description of the statistical features see the paper.<br>
 
 
 
@@ -44,7 +46,7 @@ Habitat detection algorithm produces two outputs.<br><br>
 During processing a dataset of images it is important to fulfill the following requirements.<br><br>
 + <i>Uniform spatial resolution</i>. Medical image spatial resolution depends on a patient. For consistency of habitat detection across patients it is important to make spatial resulution uniform.<br><br>
 + <i>Uniform image size</i>. Texture computation is performed in the frequency space after the fourier transform. Varience in input image size will cause difference in texture signature computation and as a result drop in texture signatures comparability.<br><br>
-
++ <i>Image size = 2^n</i>. Texture computation function requires image size to be equal to 2^n, e.g. 256 or 512. Nevertheless, content of an image located "far" from RoI still influence on the result of fourier transform and as a result it is influence on texture computation within RoI. Thus, it can be considered as noise. We recommend to set pixels which are "far" from RoI to zero. See test data for an example.<br><br>
 
 Overall, here is recomended preprocessing algorithm:<br>
 1. Resample images into uniform spacing.<br>
@@ -61,28 +63,28 @@ In order to increase reproducibility and simplify preprocessing we updated heter
 
 <H2>Example Code</H2>
 
-After you download the code, include all the folders (features, habitats, U, utils, Wavelet and workflow) and their subfolders into Matlab PATH variable. All the computations are done by function <i>compute_features</i>. Below is an example of its usage.
+After you download the code, include all the folders (features, U, utils, Wavelet and workflow) and their subfolders into Matlab PATH variable. All the computations are done by function <i>compute_features</i>. Below is an example of its usage.
 
 ```
 %Include all folders and subfolders into Matlab PATH variable
 
-clc;<br>
-clear;<br>
-close all;<br>
-load('test_data.mat');<br>
+clc;
+clear;
+close all;
+load('test_data.mat');
 
-hV = [-1,0,1];<br>
-[habitats, features] = compute_features( img, mask, hV );<br>
-show_habitats(habitats);title('Habitat map');<br>
-figure; imagesc(img); colormap gray;title('CT data');<br>
-figure; imagesc(mask); colormap gray;title('Original segmentation');<br>
+hV = [-1,0,1];
+[habitats, features] = compute_features( img, mask, hV );
+show_habitats(habitats);title('Habitat map');
+figure; imagesc(img); colormap gray;title('CT data');
+figure; imagesc(mask); colormap gray;title('Original segmentation');
 ```
 
 <H2>Assumptions and Peproducibility</H2>
 
 We use k-mean algorithm for detection of clusters with similar texture signatures. For reproducibility we used default Random Number Generator.
 ```
-rng('default')<br>
+rng('default')
 ```
 Line 21 at <i>workflow/cluster_texture.m</i><br>
 
