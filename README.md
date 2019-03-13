@@ -62,7 +62,7 @@ Result of the preprocessing step can be used as <i>compute_features.m</i> functi
 <H2>Available Modifications</H2>
 
 In order to increase reproducibility and simplify preprocessing, we updated the heterogeneity detection algorithm. Its texture computation function is modified in the way that the resolution of input images becomes irrelevant. There is only one requirement: <i>Uniform spatial resolution</i>. Due to changes in texture computation process results of the original and modified methods can vary. Download link for the modified method shown below:<br>
-[link]<br>
+https://github.com/VisionAI-USF/TextureHeterogeneityDetection_easy_preprocess<br>
 
 <H2>Example Code</H2>
 
