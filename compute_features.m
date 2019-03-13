@@ -22,3 +22,4 @@ function [habitats, features] = compute_features( img, mask, hv_order )
     habitats = habitat_patches{1};
     features = features{1};
 
+end
