@@ -16,7 +16,7 @@ There are three input variables. The first one is a 2D image. The second one is 
 
 <H2>Output Description</H2><br>
 
-The abitat detection algorithm produces two outputs.<br><br>
+The Habitat detection algorithm produces two outputs.<br><br>
 + <i>"Habitats"</i>: An NxXxY matrix, where N is number of detected habitats, X and Y are the size of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying a combined habitat map.
 + <i>"Features"</i>: Structure variable containing a description of habitats and tumor heterogeneity.<br>
   + <i>"Features.num_clusters"</i>: number of detected habitats;<br>
@@ -45,28 +45,28 @@ For a detailed description of the statistical features please see the paper.<br>
 
 During processing a dataset of images it is important to fulfill the following requirements.<br><br>
 + <i>Uniform spatial resolution</i>. Medical image spatial resolution depends on the patient. For consistency of habitat detection across patients, it is important to make spatial resolution uniform.<br><br>
-+ <i>Uniform image size</i>. Texture computation is performed in the frequency space after the Fourier transform. Variance in input image size will cause a difference in texture signature computation and as a result drop in texture signatures comparability.<br><br>
-+ <i>Image size = 2^n</i>. Texture computation function requires input image size to be equal to 2^n, e.g. 256 or 512. Nevertheless, the content of an image located "far" from RoI affect the result of Fourier transform and as a result it affect texture computation result within RoI. Thus, the content of an image located "far" from RoI can be considered as noise. We recommend assigning pixels which are "far" from RoI to zero. See test data from example code section for an example.<br><br>
++ <i>Uniform image size</i>. Texture computation is performed in the frequency space after the Fourier transform. Variance in input image size will cause a difference in texture signature computation and as a result one will see a drop in texture signatures comparability.<br><br>
++ <i>Image size = 2^n</i>. Texture computation function requires input image size to be equal to 2^n, e.g. 256 or 512. Nevertheless, the content of an image located "far" from the RoI affects the result of the Fourier transform and as a result it affects the texture computation result within the RoI. Thus, the content of an image located "far" from the RoI can be considered  noise. We recommend assigning pixels which are "far" from the RoI to zero. See test data from example code section for an example.<br><br>
 
-Overall, here is recommended preprocessing algorithm:<br>
+Overall, here is the recommended preprocessing algorithm:<br>
 1. Resample images into uniform spacing.<br>
 2. Define the largest bounding box across training and test (if present) cohorts.<br>
 3. Extend the bounding box by a constant.<br>
-4. Extract a patch with resulting bounding box size from source image.<br>
-5. Find n, such that 2^n is larger then founded bounded box size.<br>
+4. Extract a patch with resulting bounding box size from a source image.<br>
+5. Find n, such that 2^n is larger then the bounded box size in 4.<br>
 6. Create an image with size 2^n and zero intensity pixel values.<br>
-7. Substitute extracted patch into the center of created image.<br>
+7. Substitute the extracted patch into the center of the created image.<br>
 
-Result of the preprocessing step can be used as <i>compute_features.m</i> function input. <b>Step 3</b> is needed to prevet artifacts during texture computation on margine of a segmentation.<br><br>
+The result of the preprocessing step can be used as the <i>compute_features.m</i> function input. <b>Step 3</b> is needed to prevent artifacts during texture computation on the margin of a segmentation.<br><br>
 
 <H2>Available Modifications</H2>
 
-In order to increase reproducibility and simplify preprocessing, we updated the heterogeneity detection algorithm. Its texture computation function is modified in the way that the resolution of input images becomes irrelevant. There is only one requirement: <i>Uniform spatial resolution</i>. Due to changes in texture computation process results of the original and modified methods can vary. Download link for the modified method shown below:<br>
+In order to increase reproducibility and simplify preprocessing, we updated the heterogeneity detection algorithm. Its texture computation function was modified such that way that the resolution of input images becomes irrelevant. There is only one requirement: <i>Uniform spatial resolution</i>. Due to changes in the texture computation process results of the original and modified methods can vary. A download link for the modified method is shown below:<br>
 https://github.com/VisionAI-USF/TextureHeterogeneityDetection_easy_preprocess<br>
 
 <H2>Example Code</H2>
 
-After you download the code, include all the folders (features, U, utils, Wavelet, and workflow) and their subfolders into Matlab PATH variable. All the computations are done by function <i>compute_features</i>. Below is an example of its usage.
+After you download the code, include all the folders (features, U, utils, Wavelet, and workflow) and their subfolders into the Matlab PATH variable. All the computations are done by the function <i>compute_features</i>. Below is an example of its usage.
 
 ```
 %Include all folders and subfolders into Matlab PATH variable
@@ -83,9 +83,9 @@ figure; imagesc(img); colormap gray;title('CT data');
 figure; imagesc(mask); colormap gray;title('Original segmentation');
 ```
 
-<H2>Assumptions and Peproducibility</H2>
+<H2>Assumptions and Reproducibility</H2>
 
-We use k-mean algorithm for detection of clusters with similar texture signatures. For reproducibility we used default Random Number Generator.
+We use the k-means algorithm for detection of clusters with similar texture signatures. For reproducibility we used the default Random Number Generator.
 ```
 rng('default')
 ```
