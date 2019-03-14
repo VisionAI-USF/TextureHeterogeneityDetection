@@ -1,27 +1,27 @@
 # Texture Heterogeneity Detection
-We present an approach of Spatial Heterogeneity, i.e., Habitats, detection using texture information. First, we compute circular harmonic wavelets for small patches within a Region of Interest (RoI). Second, we cluster patches in order to define the sub-regions of an image with similar texture patterns (habitats). Finally, information about resulting clusters and their texture signatures is presented as habitat descriptors.
+We present an approach of Spatial Heterogeneity, i.e., Habitat detection using texture information. First, we compute circular harmonic wavelets for small patches within a Region of Interest (RoI). Second, we cluster patches in order to define the sub-regions of an image with similar texture patterns (habitats). Finally, information about resulting clusters and their texture signatures, habitat descriptors, is presented.
 
 <H2>Introduction</H2><br>
-This code is part of a project which results are published in the paper: "Revealing Tumor Habitats from Texture Heterogeneity Analysis for Classification of Lung Cancer Malignancy and Aggressiveness". Please, see the original paper for details:<br>
+This code is part of a project whose results are published in the paper: "Revealing Tumor Habitats from Texture Heterogeneity Analysis for Classification of Lung Cancer Malignancy and Aggressiveness". Please, see the original paper for details:<br>
 TBA
 
 
 <H2>Input Arguments</H2><br>
-There are three input variables. The first one is a 2D image. The second one is a mask (RoI) for the input image. The third one is Harmonic Vector description.<br><br>
+There are three input variables. The first one is a 2D image. The second one is a mask (RoI) for the input image. The third one is a Harmonic Vector description.<br><br>
 1.  <i>"img"</i>: The Source 2D image. There are no requirements for pixel value range or type.<br><br>
 2.  <i>"mask"</i>: An RoI for the source image. It has to have the same resolution as the input image. Non-zero elements represent an RoI where heterogeneity should be evaluated.<br><br>
-3.  <i>"hV"</i>: The Harmonic Vector (hV) represents the complexity and number of texture features. All texture computations are done in Fourier space, so you may think about hV as a representative of convolution kernels. The simplest texture description represented by 0. Next is -1 and 1 and so on. Thus, you can set hV to (0), (-1, 0), (-1, 0, 1), ..., (-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5) and so on. For more details see papers in the introduction section.<br>
+3.  <i>"hV"</i>: The Harmonic Vector (hV) represents the complexity and number of texture features. All texture computations are done in Fourier space, so you may think about hV as a representative of convolution kernels. The simplest texture description represented by 0. Next is -1 and 1 and so on. Thus, you can set hV to (0), (-1, 0), (-1, 0, 1), ..., (-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5) and so on. For more details see the papers referenced in the introduction section of our paper above.<br>
 
 
 
-<H2>Output Arguments</H2><br>
+<H2>Output Description</H2><br>
 
-Habitat detection algorithm produces two outputs.<br><br>
-+ <i>"Habitats"</i>: NxXxY matrix, where N is number of detected habitats, X and Y are resolutions of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying of combined habitat map.
-+ <i>"Features"</i>: Structure variable containing description of habitats and tumor heterogeneity.<br>
+The abitat detection algorithm produces two outputs.<br><br>
++ <i>"Habitats"</i>: An NxXxY matrix, where N is number of detected habitats, X and Y are the size of the input image. Each habitat is marked with non-zero elements in an individual habitat map. Function workflow/show_habitats.m can be used for displaying a combined habitat map.
++ <i>"Features"</i>: Structure variable containing a description of habitats and tumor heterogeneity.<br>
   + <i>"Features.num_clusters"</i>: number of detected habitats;<br>
   + <i>"Features.fingerprint"</i>: texture signature values for each habitat. The order of signatures is the same as the order of habitat maps in "Habitats" output.<br>
-  + <i>"Features.q_features"</i>: Stracture field which describe statistical information about habitat areas.<br>
+  + <i>"Features.q_features"</i>: Stracture field which describes statistical information about habitat areas.<br>
       + <i>"Features.q_features.smallest_ration_v"</i>: The smallest ratio of a habitat area to an RoI area.<br>
       + <i>"Features.q_features.largest_region_v"</i>: The largest ratio of a habitat area to an RoI area.<br>
       + <i>"Features.q_features.mean_region_v"</i>: The mean ratio of a habitat area to an RoI area.<br>
@@ -30,13 +30,13 @@ Habitat detection algorithm produces two outputs.<br><br>
       + <i>"Features.q_features.disjoint_largest_region_v"</i>: The largest ratio of a <b>disjoint*</b> habitat area to an RoI area.<br>
       + <i>"Features.q_features.disjoint_mean_region_v"</i>: The mean ratio of a <b>disjoint*</b> habitat area to an RoI area.<br>
       + <i>"Features.q_features.disjoint_median_region_v"</i>: The median ratio of a <b>disjoint*</b> habitat area to an RoI area.<br>
-  + <i>"Features.centroids_mean_dist"</i>: Mean euclidean distance from each habitat texture signature to a RoI texture signature. The RoI texture signature is defined as mean value of all texture signatures.<br>
-  + <i>	"Features.centroids_std_dist"</i>: Standart deviation of euclidean distances from each habitat texture signature to a RoI texture signature. The RoI texture signature is defined as mean value of all texture signatures.<br><br>
+  + <i>"Features.centroids_mean_dist"</i>: Mean Euclidean distance from each habitat texture signature to an RoI texture signature. The RoI texture signature is defined as a mean value of all texture signatures.<br>
+  + <i>	"Features.centroids_std_dist"</i>: Standard deviation of Euclidean distances from each habitat texture signature to an RoI texture signature. The RoI texture signature is defined as the mean value of all texture signatures.<br><br>
 
 
-<b>*Habitats</b> are detected without the respect to their location within an RoI. As a result, an individual habitat can be presented as a set of disjoint sub-regions within an RoI. In the case where area statistics is computed on disjoint habitats each disjoint region of a habitat is considered as an independent habitat.<br><br>
+<b>*Habitats</b> are detected without the requirment that they be a contiguous region within an RoI. As a result, an individual habitat can be presented as a set of disjoint sub-regions within an RoI. In the case where area statistics are computed on disjoint habitats each disjoint region of a habitat is considered as an independent habitat.<br><br>
 
-For a detailed description of the statistical features see the paper.<br>
+For a detailed description of the statistical features please see the paper.<br>
 
 
 
@@ -92,6 +92,6 @@ rng('default')
 Line 21 at <i>workflow/cluster_texture.m</i><br>
 
 <H2>References</b></H2>
-If you are going to use it, please, use the reference:<br>
+If you are going to use this code, please, use the reference:<br>
 TBA
 
