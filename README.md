@@ -66,11 +66,24 @@ https://github.com/VisionAI-USF/TextureHeterogeneityDetection_easy_preprocess<br
 
 <H2>Example Code</H2>
 
-After you download the code, include all the folders (features, U, utils, Wavelet, and workflow) and their subfolders into the Matlab PATH variable. All the computations are done by the function <i>compute_features</i>. Below is an example of its usage.
+
+After you download the code, include all the folders (features, U, utils, Wavelet, and workflow) and their subfolders into Matlab PATH variable.<br>
+To do that in terminal you need to change working directory (<i>cd</i> command) to the one where the downloaded code is located. Then you can use the code below.
 
 ```
-%Include all folders and subfolders into Matlab PATH variable
+cur_folder = pwd();
+addpath([cur_folder,filesep,'features']);
+addpath([cur_folder,filesep,'U']);
+addpath([cur_folder,filesep,'utils']);
+addpath([cur_folder,filesep,'Wavelet']);
+addpath([cur_folder,filesep,'Wavelet',filesep,'Radial']);
+addpath([cur_folder,filesep,'workflow']);
+```
 
+
+All the computations are done by function <i>compute_features</i>. Below is an example of its usage.
+
+```
 clc;
 clear;
 close all;
@@ -78,11 +91,14 @@ load('test_data.mat');
 
 hV = [-1,0,1];
 [habitats, features] = compute_features( img, mask, hV );
+
+```
+If you are running Matlab at graphical operating system, then you can plot input data and resulting habitat map using following code.
+```
 show_habitats(habitats);title('Habitat map');
 figure; imagesc(img); colormap gray;title('CT data');
 figure; imagesc(mask); colormap gray;title('Original segmentation');
 ```
-
 <H2>Assumptions and Reproducibility</H2>
 
 We use the k-means algorithm for detection of clusters with similar texture signatures. For reproducibility we used the default Random Number Generator.
