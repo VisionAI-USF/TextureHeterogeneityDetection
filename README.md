@@ -68,7 +68,7 @@ https://github.com/VisionAI-USF/TextureHeterogeneityDetection_easy_preprocess<br
 
 
 After you download the code, include all the folders (features, U, utils, Wavelet, and workflow) and their subfolders into Matlab PATH variable.<br>
-To do that in terminal you need to change working directory (<i>cd</i> command) to the one where the downloaded code is located. Then you can use the code below.
+To do that in a terminal you need to change working directory (<i>cd</i> command) to the one where the downloaded code is located. Then you can use the code below after starting Matlab.
 
 ```
 cur_folder = pwd();
@@ -81,7 +81,7 @@ addpath([cur_folder,filesep,'workflow']);
 ```
 
 
-All the computations are done by function <i>compute_features</i>. Below is an example of its usage.
+All the computations are done by the function <i>compute_features</i>. Below is an example of its usage.
 
 ```
 clc;
@@ -93,7 +93,7 @@ hV = [-1,0,1];
 [habitats, features] = compute_features( img, mask, hV );
 
 ```
-If you are running Matlab at graphical operating system, then you can plot input data and resulting habitat map using following code.
+If you are running Matlab using a graphical user interface (GUI), then you can plot input data and resulting habitat map using following code.
 ```
 show_habitats(habitats);title('Habitat map');
 figure; imagesc(img); colormap gray;title('CT data');
