@@ -2,8 +2,8 @@
 We present an approach of Spatial Heterogeneity, i.e., Habitat detection using texture information. First, we compute circular harmonic wavelets for small patches within a Region of Interest (RoI). Second, we cluster patches in order to define the sub-regions of an image with similar texture patterns (habitats). Finally, information about resulting clusters and their texture signatures, habitat descriptors, is presented.
 
 <H2>Introduction</H2><br>
-This code is part of a project whose results are published in the paper: "Revealing Tumor Habitats from Texture Heterogeneity Analysis for Classification of Lung Cancer Malignancy and Aggressiveness". Please, see the original paper for details:<br>
-TBA
+This code is part of a project whose results are published in the paper: "Revealing Tumor Habitats from Texture Heterogeneity Analysis for Classification of Lung Cancer Malignancy and Aggressiveness". The paper is in open access and can be found here: <br>
+https://www.nature.com/articles/s41598-019-38831-0<br>
 
 
 <H2>Input Arguments</H2><br>
