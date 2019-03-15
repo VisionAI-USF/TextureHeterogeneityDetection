@@ -10,8 +10,8 @@ https://www.nature.com/articles/s41598-019-38831-0<br>
 There are three input variables. The first one is a 2D image. The second one is a mask (RoI) for the input image. The third one is a Harmonic Vector description.<br><br>
 1.  <i>"img"</i>: The Source 2D image. There are no requirements for pixel value range or type.<br><br>
 2.  <i>"mask"</i>: An RoI for the source image. It has to have the same resolution as the input image. Non-zero elements represent an RoI where heterogeneity should be evaluated.<br><br>
-3.  <i>"hV"</i>: The Harmonic Vector (hV) represents the complexity and number of texture features. All texture computations are done in Fourier space, so you may think about hV as a representative of convolution kernels. The simplest texture description represented by 0. Next is -1 and 1 and so on. Thus, you can set hV to (0), (-1, 0), (-1, 0, 1), ..., (-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5) and so on.<br>
-Deteiled description of texture computation can be found in the following paper:<br><br>
+3.  <i>"hV"</i>: The Harmonic Vector (hV) represents the complexity and number of texture features. All texture computations are done in Fourier space, so you may think about hV as a representative of convolution kernels. The simplest texture description represented by 0. Next is -1 and 1 and so on. Thus, you can set hV to (0), (-1, 0), (-1, 0, 1), ..., (-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5) and so on.<br><br>
+Deteiled description of texture computation can be found in the following paper:<br>
 Depeursinge, A., Puspoki, Z., Ward, J.-P. & Unser, M. Steerable Wavelet Machines (SWM): Learning Moving Frames for Texture Classification. IEEE Transactions on Image Process. 26, 1626–1636 (2017)<br>
 
 
